@@ -2,6 +2,7 @@ package com.simplon.jpalibrary.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 @Data
 @Entity
@@ -17,7 +18,7 @@ public class Book {
     @Column(nullable = true)
     private String description;
 
-    @Column(nullable = false)
-    private Boolean available;
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE") //cré une valeur par défaut côté BDD
+    private Boolean available = true; //cré une valeur par défaut Java (côté entité)
 
 }

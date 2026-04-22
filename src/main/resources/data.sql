@@ -4,7 +4,7 @@ CREATE TABLE book (
     id LONG AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     description TEXT,
-    available BOOLEAN NOT NULL DEFAULT FALSE
+    available BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 INSERT INTO book (title, description, available)
