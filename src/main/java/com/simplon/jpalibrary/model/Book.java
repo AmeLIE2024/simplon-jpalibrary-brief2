@@ -18,7 +18,7 @@ public class Book {
     @Column(nullable = true)
     private String description;
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE") //cré une valeur par défaut côté BDD
-    private Boolean available = true; //cré une valeur par défaut Java (côté entité)
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE") //créer une valeur par défaut côté BDD
+    private Boolean available = true; //créer une valeur par défaut Java (côté entité)
 
 }
