@@ -1,0 +1,23 @@
+info:
+  name: Add book
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:9000/api/books
+  body:
+    type: json
+    data: |-
+      {
+          "title": "Le hobbit",
+        "description": "Bilbo, comme tous les hobbits, est un petit être paisible",
+        "available": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
