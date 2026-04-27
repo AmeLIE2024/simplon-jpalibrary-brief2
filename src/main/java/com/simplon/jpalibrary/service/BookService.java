@@ -33,4 +33,8 @@ public class BookService  {
         return savedBook;
     }
 
+    public Optional<Book> getBookByTitle(String title) {
+        return bookRepository.findByTitle(title);
+    }
+
 }

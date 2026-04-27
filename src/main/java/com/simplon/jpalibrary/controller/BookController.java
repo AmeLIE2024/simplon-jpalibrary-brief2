@@ -19,6 +19,11 @@ public class BookController {
         return bookService.getBooks();
     }
 
+    @GetMapping("/title/{title}")
+    public Optional<Book> getBookByTitle(@PathVariable String title) {
+        return bookService.getBookByTitle(title);
+    }
+
     @GetMapping("/{id}")
     public Optional<Book> getBookById(@PathVariable Long id) {
 
@@ -33,8 +38,19 @@ public class BookController {
 
     @PutMapping("{id}")
     public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
+        Optional<Book> b = bookService.getBookById(id);
+        if(b.isPresent()) {
+            Book currentBook = b.get();
 
-        return bookService.saveBook(book);
+            currentBook.setTitle(book.getTitle());
+            currentBook.setDescription(book.getDescription());
+            currentBook.setAvailable(book.getAvailable());
+
+            bookService.saveBook(currentBook);
+            return currentBook;
+        } else {
+            return null;
+        }
     }
 
     @DeleteMapping("/{id}")
